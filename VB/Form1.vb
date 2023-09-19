@@ -1,189 +1,200 @@
-Imports Microsoft.VisualBasic
 Imports System
 Imports System.Drawing
-Imports System.Collections
 Imports System.ComponentModel
 Imports System.Windows.Forms
 Imports System.Data
 Imports CustomGrid
 
 Namespace EmptyAreaGridLines
-	''' <summary>
-	''' Summary description for Form1.
-	''' </summary>
-	Public Class Form1
-		Inherits System.Windows.Forms.Form
-		Private myGridControl1 As MyGridControl
-		Private dataSet1 As System.Data.DataSet
-		Private dataTable1 As System.Data.DataTable
-		Private dataColumn1 As System.Data.DataColumn
-		Private dataColumn2 As System.Data.DataColumn
-		Private dataColumn3 As System.Data.DataColumn
-		Private dataColumn4 As System.Data.DataColumn
-		Private myGridView1 As CustomGrid.MyGridView
-		Private colColumn1 As DevExpress.XtraGrid.Columns.GridColumn
-		Private colColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-		Private colColumn3 As DevExpress.XtraGrid.Columns.GridColumn
-		Private colColumn4 As DevExpress.XtraGrid.Columns.GridColumn
-		''' <summary>
-		''' Required designer variable.
-		''' </summary>
-		Private components As System.ComponentModel.Container = Nothing
 
-		Public Sub New()
-			'
-			' Required for Windows Form Designer support
-			'
-			InitializeComponent()
+    ''' <summary>
+    ''' Summary description for Form1.
+    ''' </summary>
+    Public Class Form1
+        Inherits Form
 
-			'
-			' TODO: Add any constructor code after InitializeComponent call
-			'
-		End Sub
+        Private myGridControl1 As MyGridControl
 
-		''' <summary>
-		''' Clean up any resources being used.
-		''' </summary>
-		Protected Overrides Overloads Sub Dispose(ByVal disposing As Boolean)
-			If disposing Then
-				If components IsNot Nothing Then
-					components.Dispose()
-				End If
-			End If
-			MyBase.Dispose(disposing)
-		End Sub
+        Private dataSet1 As DataSet
 
-		#Region "Windows Form Designer generated code"
-		''' <summary>
-		''' Required method for Designer support - do not modify
-		''' the contents of this method with the code editor.
-		''' </summary>
-		Private Sub InitializeComponent()
-			Me.myGridControl1 = New CustomGrid.MyGridControl()
-			Me.dataTable1 = New System.Data.DataTable()
-			Me.dataColumn1 = New System.Data.DataColumn()
-			Me.dataColumn2 = New System.Data.DataColumn()
-			Me.dataColumn3 = New System.Data.DataColumn()
-			Me.dataColumn4 = New System.Data.DataColumn()
-			Me.myGridView1 = New CustomGrid.MyGridView()
-			Me.colColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
-			Me.colColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
-			Me.colColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
-			Me.colColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
-			Me.dataSet1 = New System.Data.DataSet()
-			CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-			CType(Me.dataTable1, System.ComponentModel.ISupportInitialize).BeginInit()
-			CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-			CType(Me.dataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-			Me.SuspendLayout()
-			' 
-			' myGridControl1
-			' 
-			Me.myGridControl1.DataSource = Me.dataTable1
-			Me.myGridControl1.Dock = System.Windows.Forms.DockStyle.Fill
-			Me.myGridControl1.EmbeddedNavigator.Name = ""
-			Me.myGridControl1.Location = New System.Drawing.Point(0, 0)
-			Me.myGridControl1.MainView = Me.myGridView1
-			Me.myGridControl1.Name = "myGridControl1"
-			Me.myGridControl1.Size = New System.Drawing.Size(536, 336)
-			Me.myGridControl1.TabIndex = 0
-			Me.myGridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() { Me.myGridView1})
-			' 
-			' dataTable1
-			' 
-			Me.dataTable1.Columns.AddRange(New System.Data.DataColumn() { Me.dataColumn1, Me.dataColumn2, Me.dataColumn3, Me.dataColumn4})
-			Me.dataTable1.TableName = "Table1"
-			' 
-			' dataColumn1
-			' 
-			Me.dataColumn1.ColumnName = "Column1"
-			' 
-			' dataColumn2
-			' 
-			Me.dataColumn2.ColumnName = "Column2"
-			' 
-			' dataColumn3
-			' 
-			Me.dataColumn3.ColumnName = "Column3"
-			' 
-			' dataColumn4
-			' 
-			Me.dataColumn4.ColumnName = "Column4"
-			' 
-			' myGridView1
-			' 
-			Me.myGridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() { Me.colColumn1, Me.colColumn2, Me.colColumn3, Me.colColumn4})
-			Me.myGridView1.GridControl = Me.myGridControl1
-			Me.myGridView1.Name = "myGridView1"
-			Me.myGridView1.OptionsView.ShowFooter = True
-			' 
-			' colColumn1
-			' 
-			Me.colColumn1.Caption = "Column1"
-			Me.colColumn1.FieldName = "Column1"
-			Me.colColumn1.Name = "colColumn1"
-			Me.colColumn1.Visible = True
-			Me.colColumn1.VisibleIndex = 0
-			' 
-			' colColumn2
-			' 
-			Me.colColumn2.Caption = "Column2"
-			Me.colColumn2.FieldName = "Column2"
-			Me.colColumn2.Name = "colColumn2"
-			Me.colColumn2.Visible = True
-			Me.colColumn2.VisibleIndex = 1
-			' 
-			' colColumn3
-			' 
-			Me.colColumn3.Caption = "Column3"
-			Me.colColumn3.FieldName = "Column3"
-			Me.colColumn3.Name = "colColumn3"
-			Me.colColumn3.Visible = True
-			Me.colColumn3.VisibleIndex = 2
-			Me.colColumn3.Width = 206
-			' 
-			' colColumn4
-			' 
-			Me.colColumn4.Caption = "Column4"
-			Me.colColumn4.FieldName = "Column4"
-			Me.colColumn4.Name = "colColumn4"
-			Me.colColumn4.Visible = True
-			Me.colColumn4.VisibleIndex = 3
-			Me.colColumn4.Width = 206
-			' 
-			' dataSet1
-			' 
-			Me.dataSet1.DataSetName = "NewDataSet"
-			Me.dataSet1.Locale = New System.Globalization.CultureInfo("en-US")
-			Me.dataSet1.Tables.AddRange(New System.Data.DataTable() { Me.dataTable1})
-			' 
-			' Form1
-			' 
-			Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-			Me.ClientSize = New System.Drawing.Size(536, 336)
-			Me.Controls.Add(Me.myGridControl1)
-			Me.Name = "Form1"
-			Me.Text = "Form1"
-'			Me.Load += New System.EventHandler(Me.Form1_Load);
-			CType(Me.myGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-			CType(Me.dataTable1, System.ComponentModel.ISupportInitialize).EndInit()
-			CType(Me.myGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-			CType(Me.dataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-			Me.ResumeLayout(False)
+        Private dataTable1 As DataTable
 
-		End Sub
-		#End Region
+        Private dataColumn1 As DataColumn
 
-		''' <summary>
-		''' The main entry point for the application.
-		''' </summary>
-		<STAThread> _
-		Shared Sub Main()
-			Application.Run(New Form1())
-		End Sub
+        Private dataColumn2 As DataColumn
 
-		Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
-			dataTable1.Rows.Add(New Object() { 1, 2, 3, 4 })
-		End Sub
-	End Class
+        Private dataColumn3 As DataColumn
+
+        Private dataColumn4 As DataColumn
+
+        Private myGridView1 As MyGridView
+
+        Private colColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+
+        Private colColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+
+        Private colColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+
+        Private colColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+
+        ''' <summary>
+        ''' Required designer variable.
+        ''' </summary>
+        Private components As System.ComponentModel.Container = Nothing
+
+        Public Sub New()
+            '
+            ' Required for Windows Form Designer support
+            '
+            InitializeComponent()
+        '
+        ' TODO: Add any constructor code after InitializeComponent call
+        '
+        End Sub
+
+        ''' <summary>
+        ''' Clean up any resources being used.
+        ''' </summary>
+        Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+            If disposing Then
+                If components IsNot Nothing Then
+                    components.Dispose()
+                End If
+            End If
+
+            MyBase.Dispose(disposing)
+        End Sub
+
+#Region "Windows Form Designer generated code"
+        ''' <summary>
+        ''' Required method for Designer support - do not modify
+        ''' the contents of this method with the code editor.
+        ''' </summary>
+        Private Sub InitializeComponent()
+            myGridControl1 = New MyGridControl()
+            dataTable1 = New DataTable()
+            dataColumn1 = New DataColumn()
+            dataColumn2 = New DataColumn()
+            dataColumn3 = New DataColumn()
+            dataColumn4 = New DataColumn()
+            myGridView1 = New MyGridView()
+            colColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+            colColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+            colColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+            colColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+            dataSet1 = New DataSet()
+            CType(myGridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(dataTable1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(myGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(dataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.SuspendLayout()
+            ' 
+            ' myGridControl1
+            ' 
+            myGridControl1.DataSource = dataTable1
+            myGridControl1.Dock = DockStyle.Fill
+            myGridControl1.EmbeddedNavigator.Name = ""
+            myGridControl1.Location = New System.Drawing.Point(0, 0)
+            myGridControl1.MainView = myGridView1
+            myGridControl1.Name = "myGridControl1"
+            myGridControl1.Size = New System.Drawing.Size(536, 336)
+            myGridControl1.TabIndex = 0
+            myGridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {myGridView1})
+            ' 
+            ' dataTable1
+            ' 
+            dataTable1.Columns.AddRange(New DataColumn() {dataColumn1, dataColumn2, dataColumn3, dataColumn4})
+            dataTable1.TableName = "Table1"
+            ' 
+            ' dataColumn1
+            ' 
+            dataColumn1.ColumnName = "Column1"
+            ' 
+            ' dataColumn2
+            ' 
+            dataColumn2.ColumnName = "Column2"
+            ' 
+            ' dataColumn3
+            ' 
+            dataColumn3.ColumnName = "Column3"
+            ' 
+            ' dataColumn4
+            ' 
+            dataColumn4.ColumnName = "Column4"
+            ' 
+            ' myGridView1
+            ' 
+            myGridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {colColumn1, colColumn2, colColumn3, colColumn4})
+            myGridView1.GridControl = myGridControl1
+            myGridView1.Name = "myGridView1"
+            myGridView1.OptionsView.ShowFooter = True
+            ' 
+            ' colColumn1
+            ' 
+            colColumn1.Caption = "Column1"
+            colColumn1.FieldName = "Column1"
+            colColumn1.Name = "colColumn1"
+            colColumn1.Visible = True
+            colColumn1.VisibleIndex = 0
+            ' 
+            ' colColumn2
+            ' 
+            colColumn2.Caption = "Column2"
+            colColumn2.FieldName = "Column2"
+            colColumn2.Name = "colColumn2"
+            colColumn2.Visible = True
+            colColumn2.VisibleIndex = 1
+            ' 
+            ' colColumn3
+            ' 
+            colColumn3.Caption = "Column3"
+            colColumn3.FieldName = "Column3"
+            colColumn3.Name = "colColumn3"
+            colColumn3.Visible = True
+            colColumn3.VisibleIndex = 2
+            colColumn3.Width = 206
+            ' 
+            ' colColumn4
+            ' 
+            colColumn4.Caption = "Column4"
+            colColumn4.FieldName = "Column4"
+            colColumn4.Name = "colColumn4"
+            colColumn4.Visible = True
+            colColumn4.VisibleIndex = 3
+            colColumn4.Width = 206
+            ' 
+            ' dataSet1
+            ' 
+            dataSet1.DataSetName = "NewDataSet"
+            dataSet1.Locale = New Globalization.CultureInfo("en-US")
+            dataSet1.Tables.AddRange(New DataTable() {dataTable1})
+            ' 
+            ' Form1
+            ' 
+            AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+            ClientSize = New System.Drawing.Size(536, 336)
+            Me.Controls.Add(myGridControl1)
+            Name = "Form1"
+            Text = "Form1"
+            AddHandler Load, New EventHandler(AddressOf Form1_Load)
+            CType(myGridControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(dataTable1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(myGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(dataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.ResumeLayout(False)
+        End Sub
+
+#End Region
+        ''' <summary>
+        ''' The main entry point for the application.
+        ''' </summary>
+        <STAThread>
+        Shared Sub Main()
+            Call Application.Run(New Form1())
+        End Sub
+
+        Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs)
+            dataTable1.Rows.Add(New Object() {1, 2, 3, 4})
+        End Sub
+    End Class
 End Namespace
